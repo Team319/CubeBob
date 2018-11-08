@@ -25,7 +25,7 @@ public class Collector extends Subsystem {
 	private static final double cubeLostDistanceThreshhold = 1.5;
 	private static final double cubeCloseThreshold = 1.0;
 
-	public void cubeCollector() {
+	public cubeCollector() {
 
 		this.collectorLeftMotor.setInverted(true);
 		this.collectorRightMotor.setInverted(false);
