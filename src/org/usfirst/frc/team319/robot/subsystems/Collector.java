@@ -72,7 +72,7 @@ public class Collector extends Subsystem {
 
 	@Override
 	public void periodic() {
-		irSensorValuesBuffer.addLast(this.collectorDistanceSensor.getVoltage());
+		//irSensorValuesBuffer.addLast(this.collectorDistanceSensor.getVoltage());
 		SmartDashboard.putNumber("IR Sensor", this.getCollectorDistanceSensorValue());
 		SmartDashboard.putBoolean("Collector Open", isOpen);
 		SmartDashboard.putNumber("Cube Collector Current", this.collectorRightMotor.getOutputCurrent());

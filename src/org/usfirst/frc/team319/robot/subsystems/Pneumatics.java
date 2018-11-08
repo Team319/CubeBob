@@ -29,7 +29,7 @@ public class Pneumatics extends Subsystem {
 	public void compressorRun() {
 		compressor.setClosedLoopControl(true);
 	}
-
+	
 	public void openCollector() {
 		this.collectorSolenoid.set(DoubleSolenoid.Value.kForward);
 		Robot.collector.setIsOpen(true);

@@ -4,6 +4,7 @@ package org.usfirst.frc.team319.robot;
 import org.usfirst.frc.team319.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team319.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team319.robot.subsystems.Wrist;
+import org.usfirst.frc.team319.utils.VisionHelper;
 import org.usfirst.frc.team319.robot.subsystems.Acubeulator;
 import org.usfirst.frc.team319.robot.subsystems.Collector;
 
@@ -23,7 +24,7 @@ public class Robot extends TimedRobot {
 	public static final Wrist wrist = new Wrist();
 	public static final Collector collector = new Collector();
 	public static final Pneumatics pneumatics = new Pneumatics();
-	
+	public static final VisionHelper vision = new VisionHelper();
 	public static OI oi;
 	
 	
