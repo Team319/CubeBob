@@ -31,12 +31,12 @@ public class Pneumatics extends Subsystem {
 	}
 	
 	public void openCollector() {
-		this.collectorSolenoid.set(DoubleSolenoid.Value.kForward);
+		this.collectorSolenoid.set(DoubleSolenoid.Value.kReverse);
 		Robot.collector.setIsOpen(true);
 	}
 
 	public void closeCollector() {
-		this.collectorSolenoid.set(DoubleSolenoid.Value.kReverse);
+		this.collectorSolenoid.set(DoubleSolenoid.Value.kForward);
 		Robot.collector.setIsOpen(false);
 	}
 	

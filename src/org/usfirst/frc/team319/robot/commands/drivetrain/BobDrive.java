@@ -3,6 +3,7 @@ package org.usfirst.frc.team319.robot.commands.drivetrain;
 import org.usfirst.frc.team319.models.DriveSignal;
 import org.usfirst.frc.team319.robot.Robot;
 import org.usfirst.frc.team319.utils.BobDriveHelper;
+import org.usfirst.frc.team319.utils.HelperFunctions;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
@@ -31,6 +32,7 @@ public class BobDrive extends Command {
 	protected void execute() {
 		double moveValue = Robot.oi.driverController.leftStick.getY();
 		double rotateValue = Robot.oi.driverController.rightStick.getX();
+		rotateValue = HelperFunctions.powerScale(rotateValue, 3, 1);
 		boolean quickTurn = (moveValue < quickTurnThreshold && moveValue > -quickTurnThreshold);
 		DriveSignal driveSignal = helper.cheesyDrive(-moveValue, rotateValue, quickTurn, false);
 		Robot.drivetrain.drive(ControlMode.PercentOutput, driveSignal);

@@ -1,10 +1,14 @@
 package org.usfirst.frc.team319.robot;
 
 import org.usfirst.frc.team319.controllers.BobXboxController;
+import org.usfirst.frc.team319.robot.commands.AutoCollectCubeClosed;
+import org.usfirst.frc.team319.robot.commands.AutoCollectCubeOpened;
 import org.usfirst.frc.team319.robot.commands.acubeulator.CubeCollectorSpit;
+import org.usfirst.frc.team319.robot.commands.acubeulator.CubeCollectorStop;
+import org.usfirst.frc.team319.robot.commands.drivetrain.BobDriveTracking;
+import org.usfirst.frc.team319.robot.commands.vision.CollectWhenInRange;
 import org.usfirst.frc.team319.robot.commands.wrist.WristGoToExchange;
 import org.usfirst.frc.team319.robot.commands.wrist.WristGoToSwitch;
-import org.usfirst.frc.team319.robot.pneumatics.CollectorToggle;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -17,25 +21,29 @@ public class OI {
 	public OI() {
 
 		//Driver Stuff!
-		driverController = new BobXboxController(0, 0.20, 0.10);
+		driverController = new BobXboxController(0, 0.20, 0.20);
+		driverController.bButton.whenPressed(new CubeCollectorStop());
 		
-		/*
-		driverController.rightTriggerButton.whenPressed(new CollectorToggle());
-		driverController.leftTriggerButton.whileHeld(new CubeCollectorSpit());
+		driverController.rightTriggerButton.whileHeld(new CollectWhenInRange());
 		
-		driverController.aButton.whenPressed(new WristGoToSwitch());
-		driverController.bButton.whenPressed(new WristGoToExchange());
-		*/
+		driverController.rightTriggerButton.whileHeld(new BobDriveTracking());
+
+		
 		
 		//Operator Stuff!
 		
-		operatorController = new BobXboxController(0,0.20, 0.10);
+		operatorController = new BobXboxController(1, 0.20, 0.20);
 		
-		operatorController.rightTriggerButton.whenPressed(new CollectorToggle());
-		operatorController.leftTriggerButton.whileHeld(new CubeCollectorSpit());
+		operatorController.rightBumper.whenPressed(new AutoCollectCubeClosed(true));
+		operatorController.leftBumper.whenPressed(new AutoCollectCubeOpened(true));
 		
-		operatorController.aButton.whenPressed(new WristGoToSwitch());
-		operatorController.bButton.whenPressed(new WristGoToExchange());
+		operatorController.rightTriggerButton.whenPressed(new CubeCollectorSpit());
+
+		operatorController.bButton.whenPressed(new CubeCollectorStop());
+		
+		operatorController.aButton.whenPressed(new WristGoToExchange());
+		operatorController.xButton.whenPressed(new WristGoToSwitch());
+		//operatorController.yButton.whenPressed(new WristGoHome());
 
 	}
 }

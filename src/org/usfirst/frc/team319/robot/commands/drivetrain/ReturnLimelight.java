@@ -11,7 +11,7 @@ public class ReturnLimelight extends Command {
 
     public ReturnLimelight() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.drivetrain);
+        requires(Robot.vision);
     }
 
     // Called just before this Command runs the first time
@@ -20,7 +20,7 @@ public class ReturnLimelight extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.drivetrain.returnLimelight();
+    	Robot.vision.returnLimelight();
     }
 
     // Make this return true when this Command no longer needs to run execute()

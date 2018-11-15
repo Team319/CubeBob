@@ -33,7 +33,7 @@ public class CubeCollectorSpit extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		if (joystickControl) {
-			double spitPower = Robot.oi.driverController.triggers.getLeft();
+			double spitPower = Robot.oi.operatorController.triggers.getRight();
 			targetSpeed = -(spitPower * spitPower);
 			Robot.collector.setCubeCollector(ControlMode.PercentOutput, targetSpeed);
 		} else {

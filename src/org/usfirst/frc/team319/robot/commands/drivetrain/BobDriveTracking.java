@@ -19,6 +19,7 @@ public class BobDriveTracking extends Command {
     public BobDriveTracking() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.drivetrain);
+        requires(Robot.vision);
         helper = new BobDriveHelper();
     }
 
@@ -28,9 +29,9 @@ public class BobDriveTracking extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double x = Robot.drivetrain.returnX();
+    	double x = Robot.vision.returnX();
     	
-    	double moveValue = Robot.drivetrain.track();
+    	double moveValue = Robot.vision.driveTrack();
     	//double moveValue = 0.0;
     	
     	double rotateValue = x * 0.01;
@@ -44,7 +45,7 @@ public class BobDriveTracking extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;//false
     }
 
     // Called once after isFinished returns true

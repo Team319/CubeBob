@@ -1,6 +1,5 @@
-/*
 
-package org.usfirst.frc.team319.robot.commands.wristcollectorvisionstuff;
+package org.usfirst.frc.team319.robot.commands.vision;
 
 import org.usfirst.frc.team319.robot.Robot;
 import org.usfirst.frc.team319.utils.BobDriveHelper;
@@ -11,8 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class CollectWhenInRange extends Command {
 	
 	int collectPosition = Robot.wrist.getCollectPosition();
-	private double toClose = 3;
-	private double toFar = 5;
+	int homePosition = Robot.wrist.getHomePosition();
 	
 	BobDriveHelper helper;
 
@@ -32,17 +30,15 @@ public class CollectWhenInRange extends Command {
     	
     	double area = Robot.vision.returnArea();
     	
-    	if(area > toClose && area < toFar) {
+    	if(area < 18 && area > 20.0) {
     	Robot.wrist.setTargetPosition(collectPosition);
     	}
 
-    	
-    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;//false
     }
 
     // Called once after isFinished returns true
@@ -56,4 +52,3 @@ public class CollectWhenInRange extends Command {
     
    
 }
-*/

@@ -1,4 +1,6 @@
-package org.usfirst.frc.team319.utils;
+package org.usfirst.frc.team319.robot.commands.vision;
+
+import org.usfirst.frc.team319.robot.Robot;
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
@@ -53,7 +55,7 @@ public class VisionHelper extends Subsystem {
 		return this.area;
 	}
 
-	public double track() {
+	public double driveTrack() {
 		double moveValue;
 		if (area < 90.0 && area > 0.0) {
 			moveValue = -0.3 / area;
@@ -63,6 +65,17 @@ public class VisionHelper extends Subsystem {
 		return moveValue;
 	}
 	
+	/*
+	public double track() {
+		double moveValue;
+		if (area < 90.0 && area > 0.0) {
+			moveValue = -0.3 / area;
+		} else {
+			moveValue = 0.0;
+		}
+		return moveValue;
+	}
+	*/
 
 
 	@Override

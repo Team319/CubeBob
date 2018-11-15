@@ -25,7 +25,7 @@ public class Collector extends Subsystem {
 	private static final double cubeLostDistanceThreshhold = 1.5;
 	private static final double cubeCloseThreshold = 1.0;
 
-	public void cubeCollector() {
+	public Collector() {
 
 		this.collectorLeftMotor.setInverted(true);
 		this.collectorRightMotor.setInverted(false);
@@ -72,7 +72,7 @@ public class Collector extends Subsystem {
 
 	@Override
 	public void periodic() {
-		//irSensorValuesBuffer.addLast(this.collectorDistanceSensor.getVoltage());
+		irSensorValuesBuffer.addLast(this.collectorDistanceSensor.getVoltage());
 		SmartDashboard.putNumber("IR Sensor", this.getCollectorDistanceSensorValue());
 		SmartDashboard.putBoolean("Collector Open", isOpen);
 		SmartDashboard.putNumber("Cube Collector Current", this.collectorRightMotor.getOutputCurrent());

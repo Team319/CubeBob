@@ -18,17 +18,17 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Wrist extends Subsystem implements IPositionControlledSubsystem {
 
-	private int maxUpTravelPosition = -1431;
-	private int dunkPosition = -1394;
-	private int homePosition = 319;
-	private int safePosition = 150;
-	private int switchPosition = 1319;
-	private int exchangePosition = 4200;
+	private int maxUpTravelPosition = -100;
+	private int dunkPosition = 0;
+	private int homePosition = 0;
+	private int safePosition = 0;
+	private int switchPosition = 3000;
+	private int exchangePosition = 5400;
 	private int scalePosition = 3608;
 	private int autoSwitchPosition = 3344;
 	private int parallelPosition = 4144;
-	private int collectPosition = 4500;
-	private int maxDownTravelPosition = 5100;
+	private int collectPosition = 6000;
+	private int maxDownTravelPosition = 6000;
 
 	public final static int WRIST_PROFILE_UP = 0;
 	public final static int WRIST_PROFILE_DOWN = 1;

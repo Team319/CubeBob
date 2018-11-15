@@ -9,7 +9,12 @@ public final class HelperFunctions {
 	/** Prevent this class from being instantiated. */
 	private HelperFunctions() {
 	}
-
+	
+	
+	public static double powerScale(double input, double power, double limit) {		
+		return limit(Math.pow(input, power), limit);
+	}
+	
 	/**
 	 * Limits the given input to the given magnitude.
 	 */

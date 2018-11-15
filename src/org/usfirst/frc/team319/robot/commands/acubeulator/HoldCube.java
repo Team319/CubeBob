@@ -18,7 +18,7 @@ public class HoldCube extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		Robot.collector.setCubeCollector(ControlMode.PercentOutput, 0.15);
+		Robot.collector.setCubeCollector(ControlMode.PercentOutput, 0.10);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
